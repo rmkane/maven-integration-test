@@ -25,8 +25,8 @@ public class StartupUrlLogger implements ApplicationListener<ApplicationReadyEve
 		String address = environment.getProperty("server.address", "localhost");
 		String host = "0.0.0.0".equals(address) || "::".equals(address) ? "localhost" : address;
 		String contextPath = environment.getProperty("server.servlet.context-path", "");
-		String baseUrl = protocol + "://" + host + ":" + port + (contextPath == null ? "" : contextPath);
-		System.out.println("Application is running at: " + baseUrl);
+		String baseUrl = protocol + "://" + host + ":" + port + contextPath;
+		System.out.printf("%n\t>> Application is running at: %s%n%n", baseUrl);
 	}
 }
 

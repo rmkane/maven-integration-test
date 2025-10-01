@@ -1,5 +1,6 @@
-package org.example.web.controller;
+package org.example.web.rest;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.web.model.Item;
 import org.example.web.service.ItemService;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/items")
 public class ItemController {
@@ -21,11 +23,13 @@ public class ItemController {
 
     @GetMapping
     public List<Item> listItems() {
+        log.debug("Fetching all items");
         return itemService.getAllItems();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Item> getItem(@PathVariable Long id) {
+        log.debug("Fetching item with id {}", id);
         return itemService.getItemById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());

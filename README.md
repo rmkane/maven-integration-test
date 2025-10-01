@@ -59,7 +59,7 @@ Integration tests live under `src/integration/test/java` and are excluded from t
 2. In another terminal or from your IDE, run the integration test class directly. Example with Maven (overrides the default include/exclude):
 
    ```bash
-   mvn -Dtest=org.example.web.controller.ItemControllerIT test -DfailIfNoTests=false
+   mvn -Dtest=org.example.web.controller.ItemControllerTest test -DfailIfNoTests=false
    ```
 
 These tests call the running app at `http://localhost:8080`.

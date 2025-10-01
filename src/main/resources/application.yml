@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: integration-test
+
+server:
+  port: 8080
+
+# Swagger UI at /swagger-ui.html and OpenAPI at /v3/api-docs
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.example.web: TRACE
